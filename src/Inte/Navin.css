@@ -1,0 +1,26 @@
+.bar{
+   min-height:60px;
+   position:fixed;
+   display:flex;
+   color: orange;
+   align-items:center;
+   justify-content:space-between;
+   padding:0 20px;
+   top:0;
+   left:0;
+   right:0;
+}
+.right{
+  display:flex;
+  align-items:center;
+  
+}
+.right a{
+    font-weight:550;
+    
+    text-transform:uppercase;
+    margin-right:10px;
+    text-decoration:none;
+    padding:0 5px;
+    color:"#00FFFF";
+}

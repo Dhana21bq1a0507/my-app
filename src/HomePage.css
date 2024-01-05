@@ -1,0 +1,113 @@
+#loginpage{
+    width:100vw;
+    height: 100vh;
+   
+}
+#body{
+    margin:0;
+    padding: 0;
+    overflow: hidden;
+    background-image: url(calenderhome.jpg) ;
+    background-repeat: no-repeat;
+    background-size:1600px 700px ;
+  
+}
+#loginsection{
+    display:flex;
+    flex-direction: column;
+    width:68rem;
+    height: 300px;
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 400px;
+    padding-top: 349px;
+
+}
+#loginsection h4{
+    color: #0A4C66;
+    font-size: 50px;
+    padding-left: 430px;
+    margin-bottom: 1px;
+}
+
+#inputfields{
+    padding-left: 350px;
+    padding-top: 50px;
+}
+
+
+select{
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 442px;
+    height: 65px;
+    flex-shrink: 0;
+    color: #3B92B5;
+    font-family: Inder;
+    font-size:25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 10px;
+    padding-left: 25px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  
+}
+select:focus {
+    outline: none; /* Remove the focus outline */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a box shadow or customize as needed */
+}
+input{
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 415px;
+    height: 65px;
+    flex-shrink: 0;
+    color:#3B92B5;
+    font-family: Inder;
+    font-size:25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 10px;
+    padding-left: 25px;
+    border: none;
+}
+input::placeholder{
+    color: #3B92B5;
+}
+input:focus {
+    outline: none; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+button,input[type="submit"]{
+    width: 140px;
+    height: 54px;
+    border-radius: 10px;
+    border: none;
+    font-family: Inder;
+    font-size:25px;
+    font-style: normal;
+    font-weight: 400;
+    background-color:#206885;
+    color: white;
+margin-left:120px;
+
+}
+.forgotdiv{
+width:800px;
+height:550px;
+margin-top: 90px;
+margin-left:330px;
+color:#3B92B5
+}
+.maind{
+    width: 1430px;
+    height:620px;
+    border: 40px solid #206885 ;
+}
+.pa{
+    text-decoration: underline;
+    color:  darkblue;
+    margin-left: 320px;
+}
