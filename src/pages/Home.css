@@ -1,0 +1,67 @@
+.heading{
+    font-size: 1.5rem;
+    color: #206885;
+}
+.container{
+    display: flex;
+   
+
+}
+.divhead{
+    margin-top:1rem;
+    text-align:center;
+    font-size:1.7rem;
+    color:aliceblue;
+}
+.divicon{
+    text-align:center;
+    font-size:5rem;
+    color:aliceblue;
+    margin-top:-1rem;
+}
+.s1{
+    
+    width:100rem;
+    height:20rem;
+    border-radius:5rem;
+    box-shadow: black;
+    background-attachment: fixed;
+    background-color:#3B92B5;
+    margin-top:10rem;
+    margin-left:20rem;
+    border: 1rem solid #0A4C66;
+}
+.s2{
+    
+    width:60rem;
+    height:20rem;
+    border-radius:5rem;
+    box-shadow: black;
+    background-attachment: fixed;
+    background-color:#3B92B5;
+    margin-top:10rem;
+    margin-left:20rem;
+    border: 1rem solid #0A4C66;
+}
+.s3{
+    width:60rem;
+    height:20rem;
+    border-radius:5rem;
+    box-shadow: black;
+    background-attachment: fixed;
+    background-color:#3B92B5;
+    margin-top:10rem;
+    margin-left:10rem;
+    border: 1rem solid #0A4C66;
+}
+.s4{
+    width:60rem;
+    height:20rem;
+    border-radius:5rem;
+    box-shadow: black;
+    background-attachment: fixed;
+    background-color:#3B92B5;
+    margin-top:10rem;
+    margin-left:10rem;
+    border: 1rem solid #0A4C66;
+}

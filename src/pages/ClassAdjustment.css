@@ -1,0 +1,47 @@
+.btn{
+    background-color:white;
+    padding:0.2rem;
+    width:10rem;
+    height:2.5rem;
+    color:red;
+    border-radius:0.3rem;
+    margin-left:32rem
+}
+.greenbtn{
+    background-color:white;
+    padding:0.2rem;
+    width:10rem;
+    height:2.5rem;
+    color:green;
+    border-radius:0.3rem;
+    margin-left:32rem
+}
+.teachermail{
+    font-size:1.3rem;
+    margin-top:0.5rem;
+    margin-top:1rem;
+    color:#3B92B5
+}
+.accept{
+    background-color:white;
+    width:10rem;
+    height:2.5rem;
+    color:#3B92B5;
+    border-radius:0.3rem;
+    margin-top:23rem
+}
+.reject{
+    background-color:white;
+    width:10rem;
+    height:2.5rem;
+    color:#3B92B5;
+    border-radius:0.3rem;
+    margin-top:2rem
+}
+.td{
+    height: 3.5rem;
+     border-Bottom:0.2rem solid #3B92B5;
+      font-size: 1.5rem;
+       color: #3B92B5;
+        text-align: center
+}

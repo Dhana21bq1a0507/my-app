@@ -1,11 +1,11 @@
 import ReactDOM from 'react-dom';
 import './App.css';
-
+import Leaverequest from './Hod/Leaverequest';
 import Digital from './Digital';
 import { useEffect, useState } from 'react';
 import axios from 'axios'
 import Fetch from './Fetch'
-import Adminhome from './Admin/Adminhome';
+import Hodhome from './Hod/Hodhome';
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Timetable from "./pages/Timetable";
@@ -23,73 +23,49 @@ import Leaveform from './pages/Leaveform';
 import Forgetpassword from './Forgetpassword';
 import ClassAdjustment from './pages/ClassAdjustment';
 import Resetpassword from './Resetpassword';
-
+import HodDash from './Components/HodDash';
+import HodFirstpage from './HodFirstpage';
+import Hodtimetable from './Hod/Hodtimetable';
+import Hodleaveform from './Hod/Hodleaveform';
+    import Hodprofile from './Hod/Hodprofile';
+import HodEditdetails from './Hod/HodEditdetails';
+import Hodchangepassword from './Hod/Hodchangepassword';
+ import Hodleaveapplication from './Hod/Hodleaveapplication';
+import Leavebalance from './pages/Leavebalance';
 import AdminFirstpage from './AdminFirstpage';
-{/*}
-function App() {
-  
-  return (
-   <Expt4/>
-  );
-}
-export default App;
-{/*const binfo={
-  Re:{
-    name:'dhana',
-    post:'jdgf',
-  },
-  Node:{
-    name:'pooji',
-    post:'werwtytrewy',
-  }
-}
-export const blong=React.createContext(binfo);
-export default function App(){
-  return(
-<div className='App'>
-<blong.Provider value={binfo}>
-  <Expt4/>
-</blong.Provider>
-</div>
-  )
-}*/}
-{/*import React, { Component } from 'react';
-//import logo from './logo.svg';
-import './App.css';
-class App extends Component {
-   constructor(){
-       super();
-       this.state ={users: []};
-   }
-   componentDidMount() {
-          fetch('/users')
-            .then(res => {
-                console.log(res);
-                return res.json()
-             })
-            .then(users => { 
-                console.log(users); 
-                this.setState({ users })
-             });
-         }
-   render() {
-        return (
-            <div className="App">
-                <h1>Users</h1>
-                {this.state.users.map(user =>
-                <div key={user.id}>user: {user.name} Password: {user.password}</div>
-              )}
-            </div>
-        );
-    }
-}
-export default App;*/}
+import Adminhome from './Admin/Adminhome';
+import Adminprofile from './Admin/Adminprofile';
+import Admintimetable from './Admin/Admintimetable'
+import Leavehistory from './pages/Leavehistory';
+import AdminEditdetails from './Admin/AdminEditdetails';
+import AdminChangepassword from './Admin/AdminChangepassword';
+import AdminTeachermanagement from './Admin/AdminTeachermanagement';
+import Adminteachermanagementmain from './Admin/Adminteachermanagementmain';
+import AdminTeachermanage from './Admin/AdminTeachermanage';
+import AdminDepartmentupload from './Admin/AdminDepartmentupload';
+import Hello from './Hello';
+import HodTeacherdetails from './Hod/HodTeacherdetails';
+import Teachertimetable from './pages/Teachertimetable';
+import Hodteachertimetable from './Hod/Hodteachertimetable';
+import Adminleavemanagement from './Admin/Adminleavemanagement';
+import React from "react";
+import AdminDepartment from './Admin/AdminDepartment';
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 
+import { Theme } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+const GlobalStyle = createGlobalStyle`
+  // Your global styles go here
+`;
+const notify = () => {
+  toast("first Notification");
+};
 function App(){
   return(
     <div>
      
-{/*<BrowserRouter>
+<BrowserRouter>
     <Routes>
         <Route path="/" element={<HomePage />} ></Route>
         <Route path="/homepage" element={<HomePage />} ></Route>
@@ -107,13 +83,54 @@ function App(){
       <Route path="/leaveform" element={<Leaveform/>}></Route>
       <Route path="/Changepassword" element={<Changepassword/>}></Route>
       <Route path="/resetpassword" element={<Resetpassword />} ></Route>
-      <Route path="/adminhome" element={<Adminhome/>} ></Route>
+      <Route path="/hodhome" element={<Hodhome/>} ></Route>
+      <Route path="/hodfirstpage" element={<HodFirstpage/>} ></Route>
+      <Route path="/hoddash" element={<HodDash/>} ></Route>
+      <Route path="/hodprofile" element={<Hodprofile/>} ></Route>
+      <Route path="/hodtimetable" element={<Hodtimetable/>} ></Route>
+      <Route path="/leaverequest" element={<Leaverequest/>} ></Route>
+      <Route path="/hodleaveform" element={<Hodleaveform/>} ></Route>
+      <Route path="/hodeditdetails" element={<HodEditdetails/>} ></Route>
+      <Route path="/hodchangepassword" element={<Hodchangepassword/>} ></Route>
+      <Route path="/hodleaveapplication" element={<Hodleaveapplication/>} ></Route>
+      <Route path="/leavebalance" element={<Leavebalance/>} ></Route>
       <Route path="/adminfirstpage" element={<AdminFirstpage/>} ></Route>
+      <Route path="/adminhome" element={<Adminhome/>} ></Route>
+      <Route path="/adminprofile" element={<Adminprofile/>} ></Route>
+      <Route path="/admintimetable" element={<Admintimetable/>} ></Route>
+      <Route path="/leavehistory" element={<Leavehistory/>} ></Route>
+      <Route path="/admineditdetails" element={<AdminEditdetails/>} ></Route>
+      <Route path="/adminchangepassword" element={<AdminChangepassword/>} ></Route>
+      <Route path="/adminteachermanagement" element={<AdminTeachermanagement/>} ></Route>
+      <Route path="/adminteachermanagementmain" element={<Adminteachermanagementmain/>}></Route>
+      <Route path="/adminteachermanage" element={<AdminTeachermanage/>}></Route>
+      <Route path="/admindepartmentupload" element={<AdminDepartmentupload/>}></Route>
+      <Route path="/hodteacherdetails" element={<HodTeacherdetails/>}></Route>
+      <Route path="/teachertimetable" element={<Teachertimetable/>}></Route>
+      <Route path="/hodteachertimetable" element={<Hodteachertimetable/>} ></Route>
+      <Route path="/adminleavemanagement" element={<Adminleavemanagement/>}></Route>
+      <Route path="/admindepartment" element={<AdminDepartment/>}></Route>
         </Routes>
 
   </BrowserRouter> 
-  {/*<Contact/> */}
-  <Digital/>
+  
+  {/*<Hello/>*/}
+  
+
+
+{/*
+
+  
+    <ThemeProvider theme={{}}>
+      <>
+        <GlobalStyle />
+        <button onClick={notify}>Notify</button>
+        <ToastContainer />
+      </>
+    </ThemeProvider>
+*/}
+
+
     </div>
 
   

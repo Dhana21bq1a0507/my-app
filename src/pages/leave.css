@@ -10,7 +10,7 @@
 }
 .maindiv{
     width:1000px;
-    height:1100px;
+    height:900px;
 }
 
 .secdiv{
@@ -70,9 +70,10 @@ button:hover{
     font-weight: 20px;
 }
 .tableinput{
-    width:100px;
-    height:40px;
+    width:190px;
+    height:50px;
     border-radius:10px;
+    background-color: aliceblue;
 }
 .c1{
     width:1100px;

@@ -1,11 +1,13 @@
 import React, { Children, useState ,useEffect} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faHome,faUser,faQuestion,faTable,faBell} from "@fortawesome/free-solid-svg-icons";
-import { NavLink } from "react-router-dom";
+import { NavLink ,useParams} from "react-router-dom";
 
 const Dashboard=({children})=>{
     const [data,setdata]=useState([]);
-    
+    const {id}=useParams();
+    const isSelected=id===children.name;
+  
     useEffect(()=>{
         fetch("http://localhost:3300/userdetails")
         .then(res => res.json())
@@ -44,18 +46,18 @@ const Dashboard=({children})=>{
         },
     ]
     return(
-        <div className="container">
-            <div className="sidebar">
+        <div className="container" >
+            <div className="sidebar" style={{height:"auto",width:"20rem",height:"44rem"}}>
             <div className="container">
             <h1 style={{fontSize:"50px",color:"aliceblue",marginTop:"40px",marginLeft:"15px"}}><FontAwesomeIcon icon={faUser}/></h1>
             {data.length>0 && <label className="name">{data[0].username}</label>}
             </div>
                 {
                     menuItem.map((item,index)=>(
-                        <NavLink to={item.path} key={index} className="link" activeClassName="active">
-                            <div className="icon" style={{fontSize:"40px"}}>{item.icon}</div>
-                            <div className="link_text" style={{fontSize:"30px",marginTop:"0px"}}>{item.name}</div>
-                        </NavLink> 
+                        <NavLink to={item.path} key={index} className={`link ${isSelected ? "selected" : ""}`} activeClassName="active">
+                        <div className="icon" >{item.icon}</div>
+                        <div >{item.name}</div>
+                    </NavLink>
                     ))
                 }
             </div>

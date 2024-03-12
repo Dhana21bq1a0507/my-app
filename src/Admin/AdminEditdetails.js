@@ -1,9 +1,10 @@
 import React,{useState,useEffect} from "react";
-import "./Dash.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUser,faIdCard,faEnvelope,faBuilding,faAddressCard,faPhone,faCamera,faPencil,faLock} from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'; 
 import Dashboard from "../Components/Dashboard";
+import HodDash from "../Components/HodDash";
+import AdminDash from "../Components/AdminDash";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 import { Theme } from 'react-toastify';
@@ -12,16 +13,8 @@ import "react-toastify/dist/ReactToastify.css";
 const GlobalStyle = createGlobalStyle`
   // Your global styles go here
 `;
-function Editdetails(){
-    const [data,setdata]=useState([]);
-    const [mes,setmes]=useState([])
-    const navigate = useNavigate();
-    const [textInput,settextInput]=useState({Username:'',Department:'',Address:'',Contact:''});
-    const handleInputChange=(e)=>{
-        const {name,value}=e.target;
-        settextInput({...textInput,[name]:value});
-     }
-     const notifywarning = (message) => {
+function AdminEditdetails(){
+    const notifywarning = (message) => {
         toast.warning(message, {
           position: "top-right",
           theme:"colored",
@@ -34,6 +27,15 @@ function Editdetails(){
         });
       
       }; 
+     
+    const [data,setdata]=useState([]);
+    const [mes,setmes]=useState([])
+    const navigate = useNavigate();
+    const [textInput,settextInput]=useState({Username:'',Department:'',Address:'',Contact:''});
+    const handleInputChange=(e)=>{
+        const {name,value}=e.target;
+        settextInput({...textInput,[name]:value});
+     }
      const sendDataToExpress=async() =>{
         //const dataTosend={textInput};
         //const dataTosend1={passInput};
@@ -42,7 +44,7 @@ function Editdetails(){
         }else{
         try{
             
-            const response=await fetch('http://localhost:3300/mes',{
+            const response=await fetch('http://localhost:3300/admineditdetails',{
                 method:'POST',headers:{
                     'Content-Type':'application/json',
                 },
@@ -50,7 +52,7 @@ function Editdetails(){
             });
             const result=await response.json();
             setmes(result)
-            navigate('/Profile');
+            navigate('/adminprofile');
                 
                 
               } 
@@ -63,7 +65,7 @@ function Editdetails(){
 
     };
     useEffect(()=>{
-        fetch("http://localhost:3300/userdetails")
+        fetch("http://localhost:3300/admindetailsprofile")
         .then(res => res.json())
         .then(data1 => setdata(data1))
         .catch((err)=>{
@@ -76,9 +78,9 @@ function Editdetails(){
 return(
    
     <div className="containter">
-        <Dashboard>
+        <AdminDash>
         <ToastContainer />
-         <div className="div1" style={{width:"75rem"}}> 
+         <div className="div1" style={{width:"74.5rem"}}> 
          <h2  style={{color:"white",marginTop:"5px",paddingTop:"10px",fontSize:"30px",paddingTop:"7px",paddingLeft:"20px"}} >Profile Management</h2>
          <div className="prof"><span style={{color:"#0A4C66",fontSize:"40px",marginLeft:"100px"}}><FontAwesomeIcon icon={faCamera}/></span></div>
       
@@ -121,8 +123,8 @@ return(
                 <td><button  type="button" style={{width:'170px',marginTop:"20px"}} onClick={sendDataToExpress}><span ><FontAwesomeIcon icon={faPencil}/></span>Edit Details</button></td>
             </tr>
         </table>
-        </Dashboard>
+        </AdminDash>
     </div>
 )
 }
-export default Editdetails
+export default AdminEditdetails

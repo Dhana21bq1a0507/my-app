@@ -1,10 +1,11 @@
 
 import React,{useState,useEffect} from "react";
-import "./Dash.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faLock,faEnvelope,faKey, faK, faL} from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'; 
 import Dashboard from "../Components/Dashboard";
+import HodDash from "../Components/HodDash";
+import AdminDash from "../Components/AdminDash";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 import { Theme } from 'react-toastify';
@@ -13,7 +14,8 @@ import "react-toastify/dist/ReactToastify.css";
 const GlobalStyle = createGlobalStyle`
   // Your global styles go here
 `;
-function Changepassword(){
+function AdminChangepassword(){
+
     const [mes,setmes]=useState([]);
     const[flag0,setflag0]=useState(false);
     const[flag1,setflag1]=useState(false);
@@ -69,7 +71,7 @@ function Changepassword(){
         else if(textInput.Newpassword===textInput.Confirmpassword){
             try{
             
-                const response=await fetch('http://localhost:3300/change',{
+                const response=await fetch('http://localhost:3300/adminchangepassword',{
                     method:'POST',headers:{
                         'Content-Type':'application/json',
                     },
@@ -96,7 +98,7 @@ function Changepassword(){
         }
      }
      useEffect(()=>{
-        fetch("http://localhost:3300/userdetails")
+        fetch("http://localhost:3300/admindetailsprofile")
         .then(res => res.json())
         .then(data1 => setdata(data1))
         .catch((err)=>{
@@ -105,13 +107,12 @@ function Changepassword(){
         })
           
         },[]);
-
 return(
    
     <div className="containter">
-        <Dashboard>
+        <AdminDash>
         <ToastContainer />
-         <div className="div1" style={{width:"75rem"}}> 
+         <div className="div1" style={{width:"75rem"}}>  
          <h2  style={{color:"white",marginTop:"5px",paddingTop:"10px",fontSize:"30px",paddingTop:"7px",paddingLeft:"20px"}} >Profile Management</h2>
        
         </div>
@@ -123,8 +124,7 @@ return(
                    
                         <td width={"270px"} style={{color:"#0A4C66",fontWeight: "500"}}> <span style={{color:"#0A4C66",fontSize:"35px",marginRight:"10px"}}><FontAwesomeIcon icon={faEnvelope}/></span> Email</td>
                         <td width={"20px"}>:</td>
-                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{data.length>0 && data[0].teachermail}
-                        </td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ data.length>0 && data[0].teachermail}</td>
                     </tr>
                     <tr>
                         <td style={{color:"#0A4C66",fontWeight: "500"}}><span style={{color:"#0A4C66",fontSize:"35px",marginRight:"10px"}}><FontAwesomeIcon icon={faKey}/></span>New Password</td>
@@ -141,8 +141,8 @@ return(
             </table>
             <button type="button" onClick={Changepass} style={{width:'250px',marginLeft:'400px',marginTop:"30px"}}><span style={{color:"white",paddingTop:"34px",paddingRight:"12px"}}><FontAwesomeIcon icon={faLock}/></span>Change Password</button>
         </div>
-        </Dashboard>
+        </AdminDash>
     </div>
 )
 }
-export default Changepassword;
+export default AdminChangepassword;

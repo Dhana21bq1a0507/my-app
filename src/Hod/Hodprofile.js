@@ -1,20 +1,20 @@
 import React,{useState,useEffect} from "react";
-import AdminDash from "../Components/AdminDash";
+import HodDash from "../Components/HodDash";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom'; 
 import {faUser,faIdCard,faEnvelope,faBuilding,faAddressCard,faPhone, faCamera,faPencil,faLock} from  "@fortawesome/free-solid-svg-icons"
 
-function Adminprofile(){
+function Hodprofile(){
     const navigate = useNavigate();
     const [data,setdata]=useState([]);
     const Editdetails=()=>{
-        navigate('/admineditdetails');
+        navigate('/hodeditdetails');
     }
     const changepassword=()=>{
-        navigate('/adminchangepassword');
+        navigate('/hodchangepassword');
     }
     useEffect(()=>{
-        fetch("http://localhost:3300/admindetailsprofile")
+        fetch("http://localhost:3300/hoddetailsprofile")
         .then(res => res.json())
         .then(data1 => setdata(data1))
         .catch((err)=>{
@@ -25,7 +25,7 @@ function Adminprofile(){
         },[]);
 return(
     <div>
-        <AdminDash>
+        <HodDash>
         <div className="containter">
            
         <div className="div1" style={{width:"75rem"}}> 
@@ -59,9 +59,9 @@ return(
         </div>
        
         </div>
-        </AdminDash>
+        </HodDash>
        
     </div>
 )
 }
-export default Adminprofile;
+export default Hodprofile;

@@ -3,7 +3,37 @@ import emailjs from '@emailjs/browser';
 import { useNavigate } from 'react-router-dom'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faLock,faEnvelope,faClock} from "@fortawesome/free-solid-svg-icons";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+const GlobalStyle = createGlobalStyle`
+  // Your global styles go here
+`;
 function Forgetpassword(){
+  const notify = (message) => {
+    toast.success(message, {
+      theme:"colored",
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+  const notifyerror = (message) => {
+    toast.error(message, {
+      theme:"colored",
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
     const form = useRef();
    // const [textInput,settextInput]=useState({teachermail:''})
     const [otp, setOtp] = useState(null);
@@ -46,10 +76,12 @@ function Forgetpassword(){
         emailjs.send('service_hn0rv12', 'template_ys3qyuo', { to: email, message }, 'eDkVE9ZXBi_ftgNxt')
           .then((result) => {
             setflag0(true);
-            console.log(result.text);
+            //console.log(result.text);
+            notify("Mail Send Successfully")
           })
           .catch((error) => {
             console.log(error.text);
+            notifyerror("Please Check Network")
           });
       };
 
@@ -72,6 +104,12 @@ function Forgetpassword(){
     return(
       
         <div className="maind">
+           <ThemeProvider theme={{}}>
+        <>
+          <GlobalStyle />
+          <ToastContainer  />
+        </>
+      </ThemeProvider>
             <div className="forgotdiv">
 
                 <h1 style={{marginTop:"40px",marginLeft:"250px"}}><FontAwesomeIcon icon={faLock}/>&nbsp;&nbsp;Forgot Password  ?</h1>
@@ -83,7 +121,7 @@ function Forgetpassword(){
                {flag0 && <div><input type="text" name="otp"style={{marginLeft:"150px",marginTop:"30px",border:"1px solid black"}}  placeholder="Enter OTP" /><span style={{fontSize:"40px",marginLeft:"10px"}}><FontAwesomeIcon icon={faClock}/></span><input type="submit" onClick={sendDataToExpress}style={{marginTop:"40px",marginLeft:"290px"}}></input></div>}
                </form>
 
-               <p style={{marginLeft:"320px",textDecoration:"underline",}} onClick={gotologin}>Go to Login</p>
+               <p style={{marginLeft:"320px",textDecoration:"underline",cursor:"pointer"}} onClick={gotologin}>Go to Login</p>
 
             </div>
             </div>

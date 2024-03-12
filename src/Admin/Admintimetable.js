@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import "./Dash.css";
+import "./Admindash.css";
 import Dashboard from "../Components/Dashboard";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTable, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { type } from "@testing-library/user-event/dist/type";
+import AdminDash from "../Components/AdminDash";
 
-const Timetable = () => {
+const Admintimetable= () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -53,7 +54,7 @@ const Timetable = () => {
   
   return (
     <div>
-      <Dashboard>
+      <AdminDash>
         <div className="div2">
           <h2 style={{ color: "white", marginTop: "5px", paddingTop: "10px", fontSize: "30px", paddingLeft: "20px" }}>
             <FontAwesomeIcon icon={faTable} style={{ fontSize: "40px" }} />&nbsp;&nbsp;Time Table Chart
@@ -89,9 +90,9 @@ const Timetable = () => {
         <button style={{ marginLeft: "500px", marginTop: "20px", width: "170px", height: "50px" }}>
           <span><FontAwesomeIcon icon={faDownload} /></span>&nbsp;&nbsp;Download
         </button>
-      </Dashboard>
+      </AdminDash>
     </div>
   );
 };
 
-export default Timetable;
+export default Admintimetable;
